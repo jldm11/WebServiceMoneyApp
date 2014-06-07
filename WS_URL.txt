@@ -1,0 +1,18 @@
+Method GET
+
+http://localhost:8080/WebServiceMoneyApp/functions/getUser?[paramenters]
+http://localhost:8080/WebServiceMoneyApp/functions/getAccount?[paramenters]
+http://localhost:8080/WebServiceMoneyApp/functions/getMovement?[paramenters]
+http://localhost:8080/WebServiceMoneyApp/functions/getDetail?[paramenters]
+
+Method POST (to test this, you can use the ajax.html file)
+
+http://localhost:8080/WebServiceMoneyApp/functions/insertUser 
+http://localhost:8080/WebServiceMoneyApp/functions/insertAccount
+http://localhost:8080/WebServiceMoneyApp/functions/insertMovement
+http://localhost:8080/WebServiceMoneyApp/functions/insertDetail
+
+http://localhost:8080/WebServiceMoneyApp/functions/updateUser
+http://localhost:8080/WebServiceMoneyApp/functions/updateAccount
+http://localhost:8080/WebServiceMoneyApp/functions/updateMovement
+http://localhost:8080/WebServiceMoneyApp/functions/updateDetail
