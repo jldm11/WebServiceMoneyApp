@@ -6,8 +6,8 @@
 $(document).ready(function(){
   $.ajax({
   type: "POST",
-  url:"http://localhost:8080/WebServiceMoneyApp/functions/insertUser",
-    data: { name: "John", lastName: "Kenedy", address: "white house", country: "USA", email: "usajfk@gmail.com", password: "abcd" }
+  url:"http://192.168.1.95:8080/WebServiceMoneyApp/functions/insertUser",
+    data: { name: "A", lastName: "Kenedy", address: "white house", country: "USA", email: "usajfk@gmail.com", password: "abcd" }
 })
   .done(function( msg ) {
     alert( "Data Saved: " + msg );
