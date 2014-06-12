@@ -8,10 +8,13 @@ import com.uaa.webservicemoneyapp.dom.Account;
 import com.uaa.webservicemoneyapp.dom.Detail;
 import com.uaa.webservicemoneyapp.dom.Movement;
 import com.uaa.webservicemoneyapp.dom.User;
+import com.uaa.webservicemoneyapp.jdbc.dao.AccountList;
+import com.uaa.webservicemoneyapp.jdbc.dao.DetailList;
 import com.uaa.webservicemoneyapp.jdbc.dao.JdbcAccountDao;
 import com.uaa.webservicemoneyapp.jdbc.dao.JdbcDetailDao;
 import com.uaa.webservicemoneyapp.jdbc.dao.JdbcMovementDao;
 import com.uaa.webservicemoneyapp.jdbc.dao.JdbcUserDao;
+import com.uaa.webservicemoneyapp.jdbc.dao.MovementList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -47,20 +50,20 @@ public class MoneyAppController {
 
     @RequestMapping(method = {RequestMethod.GET}, value = {"/getAccount/{idUser}"})
     public @ResponseBody
-    List<Account> getAccount(@PathVariable(value = "idUser") int idUser) {
-        return accountJdbc.getAccountsFromDB(idUser);
+    AccountList getAccount(@PathVariable(value = "idUser") int idUser) {
+        return new AccountList(accountJdbc.getAccountsFromDB(idUser));
     }
 
     @RequestMapping(method = {RequestMethod.GET}, value = {"/getMovement/{idAccount}"})
     public @ResponseBody
-    List<Movement> getMovement(@PathVariable(value = "idAccount") int idAccount) {
-        return movementJdbc.getMovementsFromDB(idAccount);
+    MovementList getMovement(@PathVariable(value = "idAccount") int idAccount) {
+        return new MovementList(movementJdbc.getMovementsFromDB(idAccount));
     }
 
     @RequestMapping(method = {RequestMethod.GET}, value = {"/getDetail/{idMovement}"})
     public @ResponseBody
-    List<Detail> getDetail(@PathVariable(value = "idMovement") int idMovement) {
-        return detailJdbc.getDetailsFromDB(idMovement);
+    DetailList getDetail(@PathVariable(value = "idMovement") int idMovement) {
+        return new DetailList(detailJdbc.getDetailsFromDB(idMovement));
     }
 
     @RequestMapping(method = {RequestMethod.POST}, value = {"/insertUser"})
