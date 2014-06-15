@@ -4,6 +4,8 @@
  */
 package com.uaa.webservicemoneyapp.dom;
 
+import java.sql.Date;
+
 /**
  *
  * @author Jose Luis
@@ -13,9 +15,9 @@ public class Movement {
     public int idAccount;
     public float amount;
     public char type;
-    public String date;
+    public Date date;
 
-    public Movement(int idMovement, int idAccount, float amount, char type, String date) {
+    public Movement(int idMovement, int idAccount, float amount, char type, Date date) {
         this.idMovement = idMovement;
         this.idAccount = idAccount;
         this.amount = amount;
@@ -55,11 +57,11 @@ public class Movement {
         this.type = type;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
     

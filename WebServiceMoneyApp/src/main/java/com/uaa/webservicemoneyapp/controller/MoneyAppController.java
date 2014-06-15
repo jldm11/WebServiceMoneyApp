@@ -79,32 +79,32 @@ public class MoneyAppController {
 
     @RequestMapping(method = {RequestMethod.POST}, value = {"/insertAccount"})
     public @ResponseBody
-    void insertAccount(@RequestParam(value = "idUser", required = true) int idUser,
-            @RequestParam(value = "status", required = true) char status,
+    void insertAccount(@RequestParam(value = "idUser", required = true) Integer idUser,
+            @RequestParam(value = "status", required = true) String status,
             @RequestParam(value = "accountName", required = true) String accountName) {
         accountJdbc.insertAccountToDB(idUser, accountName, status);
     }
 
     @RequestMapping(method = {RequestMethod.POST}, value = {"/insertMovement"})
     public @ResponseBody
-    void insertMovement(@RequestParam(value = "idAccount", required = true) int idAccount,
-            @RequestParam(value = "amount", required = true) float amount,
-            @RequestParam(value = "type", required = true) char type,
+    void insertMovement(@RequestParam(value = "idAccount", required = true) Integer idAccount,
+            @RequestParam(value = "amount", required = true) Double amount,
+            @RequestParam(value = "type", required = true) String type,
             @RequestParam(value = "date", required = true) String date) {
         movementJdbc.insertMovementToDB(idAccount, amount, type, date);
     }
 
     @RequestMapping(method = {RequestMethod.POST}, value = {"/insertDetail"})
     public @ResponseBody
-    void insertDetail(@RequestParam(value = "idMovement", required = true) int idMovement,
+    void insertDetail(@RequestParam(value = "idMovement", required = true) Integer idMovement,
             @RequestParam(value = "description", required = true) String description,
-            @RequestParam(value = "amount", required = true) float amount) {
+            @RequestParam(value = "amount", required = true) Double amount) {
         detailJdbc.insertDetailToDB(idMovement, description, amount);
     }
     
     @RequestMapping(method = {RequestMethod.POST}, value = {"/updateUser"})
     public @ResponseBody
-    void updateUser(@RequestParam(value = "idUser", required = true) int idUser,
+    void updateUser(@RequestParam(value = "idUser", required = true) Integer idUser,
             @RequestParam(value = "name", required = true) String name,
             @RequestParam(value = "lastName", required = true) String lastName,
             @RequestParam(value = "address", required = true) String address,
@@ -116,26 +116,26 @@ public class MoneyAppController {
 
     @RequestMapping(method = {RequestMethod.POST}, value = {"/updateAccount"})
     public @ResponseBody
-    void updateAccount(@RequestParam(value = "idAccount", required = true) int idAccount,
-            @RequestParam(value = "status", required = true) char status,
+    void updateAccount(@RequestParam(value = "idAccount", required = true) Integer idAccount,
+            @RequestParam(value = "status", required = true) String status,
             @RequestParam(value = "accountName", required = true) String accountName) {
         accountJdbc.updateAccountToDB(idAccount, accountName, status);
     }
 
     @RequestMapping(method = {RequestMethod.POST}, value = {"/updateMovement"})
     public @ResponseBody
-    void updateMovement(@RequestParam(value = "idMovement", required = true) int idMovement,
-            @RequestParam(value = "amount", required = true) float amount,
-            @RequestParam(value = "type", required = true) char type,
+    void updateMovement(@RequestParam(value = "idMovement", required = true) Integer idMovement,
+            @RequestParam(value = "amount", required = true) Double amount,
+            @RequestParam(value = "type", required = true) String type,
             @RequestParam(value = "date", required = true) String date) {
         movementJdbc.updateMovementToDB(idMovement, amount, type, date);
     }
 
     @RequestMapping(method = {RequestMethod.POST}, value = {"/updateDetail"})
     public @ResponseBody
-    void updateDetail(@RequestParam(value = "idDetail", required = true) int idDetail,
+    void updateDetail(@RequestParam(value = "idDetail", required = true) Integer idDetail,
             @RequestParam(value = "description", required = true) String description,
-            @RequestParam(value = "amount", required = true) float amount) {
+            @RequestParam(value = "amount", required = true) Double amount) {
         detailJdbc.updateDetailToDB(idDetail, description, amount);
     }
 }

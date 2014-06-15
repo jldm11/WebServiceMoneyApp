@@ -21,12 +21,12 @@ public class JdbcDetailDao extends JdbcDaoSupport implements DetailDao{
         return details;
     }
     
-    public void insertDetailToDB(int idMovement, String description, float amount) {
-        String query = "insert into userInfo.\"Detail\" values( ?, ?, ?)";
+    public void insertDetailToDB(Integer idMovement, String description, Double amount) {
+        String query = "insert into expensesInfo.\"Detail\" values( ?, ?, ?)";
         getJdbcTemplate().update(query, idMovement, description, amount);
     }
     
-    public void updateDetailToDB(int idDetail, String description, float amount) {
+    public void updateDetailToDB(Integer idDetail, String description, Double amount) {
         String query = "update expensesInfo.\"Detail\" set description = ?, amount = ?"
                 + " where idDetail = ?";
         getJdbcTemplate().update(query, idDetail, description, amount);

@@ -21,12 +21,12 @@ public class JdbcMovementDao extends JdbcDaoSupport implements MovementDao {
         return movements;
     }
                       
-    public void insertMovementToDB(int idAccount, float amount, char type, String date) {
-        String query = "insert into userInfo.\"Movement\" values( ?, ?, ?, ?)";
+    public void insertMovementToDB(Integer idAccount, Double amount, String type, String date) {
+        String query = "insert into expensesInfo.\"Movement\" values( ?, ?, ?, ?)";
         getJdbcTemplate().update(query, idAccount, amount, type, date);
     }
     
-    public void updateMovementToDB(int idMovement, float amount, char type, String date) {
+    public void updateMovementToDB(Integer idMovement, Double amount, String type, String date) {
         String query = "update expensesInfo.\"Movement\" set amount = ?, type = ?, date = ?"
                 + " where idMovement = ?";
         getJdbcTemplate().update(query, amount, type, date);

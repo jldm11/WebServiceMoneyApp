@@ -27,7 +27,7 @@ public class JdbcUserDao extends JdbcDaoSupport implements UserDao {
         getJdbcTemplate().update(query, name, lastName, address, country, email, password);
     }
     
-    public void updateUserToDB(int idUser, String name, String lastName, String address, String country, String email, String password) {
+    public void updateUserToDB(Integer idUser, String name, String lastName, String address, String country, String email, String password) {
         String query = "update userInfo.\"User\" set name = ?, lastName = ?, address = ?, country = ?, email = ?, password = ?"
                 + " where idUser = ?";
         getJdbcTemplate().update(query, name, lastName, address, country, email, password, idUser);

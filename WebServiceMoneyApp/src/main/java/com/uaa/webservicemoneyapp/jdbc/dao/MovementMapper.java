@@ -21,7 +21,7 @@ public class MovementMapper implements RowMapper<Movement>{
                 rs.getInt("idAccount"), 
                 rs.getFloat("amount"), 
                 rs.getString("type").toCharArray()[0],
-                rs.getString("date"));
+                rs.getDate("date"));
         return movement;
     }
     
